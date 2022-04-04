@@ -18,13 +18,22 @@ import org.ajoberstar.grgit.Grgit
 import java.nio.charset.StandardCharsets
 
 buildscript {
+//  repositories {
+//    mavenCentral()
+//    jcenter()
+//    maven {
+//      url "https://plugins.gradle.org/m2/"
+//    }
+//  }
   repositories {
-    mavenCentral()
-    jcenter()
     maven {
-      url "https://plugins.gradle.org/m2/"
+      url 'http://maven.aliyun.com/nexus/content/groups/public/'
+    }
+    maven {
+      url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'
     }
   }
+
   apply from: file('gradle/buildscript.gradle'), to: buildscript
   apply from: "$rootDir/gradle/dependencies.gradle"
 
@@ -53,8 +62,16 @@ spotless {
 
 allprojects {
 
+//  repositories {
+//    mavenCentral()
+//  }
   repositories {
-    mavenCentral()
+    maven {
+      url 'http://maven.aliyun.com/nexus/content/groups/public/'
+    }
+    maven {
+      url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'
+    }
   }
 
   apply plugin: 'idea'
